@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heavenly Arbor Care – Professional Tree Services in San Antonio</title>
+<meta name="description" content="24/7 emergency tree service in San Antonio & Bexar County. Video estimates, fast response, transparent pricing. Licensed & insured. Call Ricardo: 210-815-5498">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --forest:#0d2b1a;--deep:#0a1f13;--canopy:#1a472a;--moss:#2d6a3f;
+  --leaf:#3d8b52;--sage:#6aab78;--mist:#c8e6c9;--cream:#f7f4ef;
+  --cream2:#ede8e0;--bark:#8B6914;--gold:#d4a017;--gold-lt:#f0c040;
+  --red:#b91c1c;--red-lt:#ef4444;--white:#fff;
+  --text:#1a1a1a;--text-mid:#444;--text-mute:#888
+}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 4%;background:rgba(13,43,26,0.97);
+  backdrop-filter:blur(12px);border-bottom:1px solid rgba(106,171,120,0.15);
+  transition:padding 0.3s
+}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo-icon{width:44px;height:44px;background:linear-gradient(135deg,var(--moss),var(--leaf));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 4px 12px rgba(45,106,63,0.4)}
+.nav-logo-text{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:#fff;line-height:1.1}
+.nav-logo-text small{display:block;font-family:'Outfit',sans-serif;font-size:0.65rem;font-weight:400;color:var(--sage);letter-spacing:.12em;text-transform:uppercase}
+.nav-right{display:flex;align-items:center;gap:14px}
+.nav-phone-link{color:var(--gold-lt);text-decoration:none;font-weight:600;font-size:1rem;letter-spacing:.02em;transition:color .2s}
+.nav-phone-link:hover{color:#fff}
+.nav-book{background:var(--gold);color:var(--forest);padding:.55rem 1.3rem;border-radius:50px;font-weight:600;font-size:.85rem;text-decoration:none;transition:background .2s,transform .2s}
+.nav-book:hover{background:var(--gold-lt);transform:translateY(-1px)}
+
+/* HERO */
+.hero{min-height:100vh;background:var(--forest);position:relative;display:flex;align-items:center;overflow:hidden}
+.hero-bg-glow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(61,139,82,0.14) 0%,transparent 70%);top:50%;left:55%;transform:translate(-50%,-50%);pointer-events:none}
+.hero-bg-glow2{position:absolute;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(212,160,23,0.07) 0%,transparent 70%);top:15%;right:8%;pointer-events:none}
+.hero-particles{position:absolute;inset:0;pointer-events:none}
+.particle{position:absolute;width:2px;height:2px;background:rgba(255,255,255,.5);border-radius:50%;animation:twinkle var(--d,3s) ease-in-out infinite var(--del,0s)}
+@keyframes twinkle{0%,100%{opacity:.15;transform:scale(1)}50%{opacity:.9;transform:scale(1.5)}}
+.hero-trees{position:absolute;bottom:0;left:0;right:0;height:40%;pointer-events:none}
+.hero-trees svg{width:100%;height:100%}
+.hero-content{position:relative;z-index:10;padding:8rem 5% 12rem;max-width:720px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;background:rgba(106,171,120,.1);border:1px solid rgba(106,171,120,.3);border-radius:50px;padding:.45rem 1.1rem;margin-bottom:2rem;font-size:.78rem;font-weight:500;color:var(--sage);letter-spacing:.12em;text-transform:uppercase;animation:fadeUp .7s ease both}
+.eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--sage);animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+h1.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:900;color:#fff;line-height:1;margin-bottom:1.5rem;animation:fadeUp .8s .15s ease both}
+h1.hero-title em{font-style:italic;color:var(--gold-lt);display:block}
+h1.hero-title .underline{position:relative;display:inline-block}
+h1.hero-title .underline::after{content:'';position:absolute;left:0;bottom:-5px;right:0;height:3px;background:linear-gradient(90deg,var(--moss),var(--gold));border-radius:2px;animation:growLine 1s .9s ease both;transform-origin:left;transform:scaleX(0)}
+@keyframes growLine{to{transform:scaleX(1)}}
+.hero-sub{font-size:1.1rem;font-weight:300;color:rgba(255,255,255,.68);line-height:1.75;max-width:540px;margin-bottom:2.5rem;animation:fadeUp .8s .3s ease both}
+.hero-btns{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;margin-bottom:3rem;animation:fadeUp .8s .45s ease both}
+.btn-main{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--gold),var(--gold-lt));color:var(--forest);padding:1rem 2.2rem;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;transition:all .3s;box-shadow:0 8px 28px rgba(212,160,23,.4);font-family:'Outfit',sans-serif}
+.btn-main:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(212,160,23,.5)}
+.btn-ghost{display:inline-flex;align-items:center;gap:10px;background:transparent;color:#fff;padding:1rem 2rem;border-radius:50px;font-size:1rem;text-decoration:none;border:1px solid rgba(255,255,255,.22);transition:all .3s;font-family:'Outfit',sans-serif}
+.btn-ghost:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.06)}
+.trust-row{display:flex;flex-wrap:wrap;gap:1.4rem;animation:fadeUp .8s .6s ease both}
+.trust-item{display:flex;align-items:center;gap:7px;font-size:.82rem;color:rgba(255,255,255,.5)}
+.trust-item::before{content:'✓';color:var(--sage);font-weight:700}
+.hero-card{position:absolute;right:4%;top:50%;transform:translateY(-50%);z-index:10;background:rgba(255,255,255,.04);border:1px solid rgba(106,171,120,.22);border-radius:20px;padding:2rem;max-width:268px;backdrop-filter:blur(8px);animation:fadeUp 1s .8s ease both}
+.hero-card-icon{width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,var(--canopy),var(--moss));display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:1rem;box-shadow:0 6px 18px rgba(45,106,63,.4)}
+.hero-card h4{font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:.6rem}
+.hero-card p{font-size:.82rem;color:rgba(255,255,255,.58);line-height:1.55}
+.hero-card-badge{display:inline-block;margin-top:1rem;background:rgba(212,160,23,.15);border:1px solid rgba(212,160,23,.3);color:var(--gold-lt);font-size:.7rem;font-weight:600;padding:.3rem .8rem;border-radius:50px;text-transform:uppercase;letter-spacing:.1em}
+
+/* STATS */
+.stats{background:var(--canopy);padding:1.8rem 5%;border-bottom:1px solid rgba(255,255,255,.06)}
+.stats-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.stat{text-align:center;padding:.6rem;border-right:1px solid rgba(255,255,255,.1)}
+.stat:last-child{border-right:none}
+.stat-n{font-family:'Playfair Display',serif;font-size:2.3rem;font-weight:900;color:var(--gold-lt);line-height:1;margin-bottom:.25rem}
+.stat-l{font-size:.75rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.1em;font-weight:500}
+
+/* GENERIC SECTION */
+.sec{padding:6rem 5%}
+.si{max-width:1100px;margin:0 auto}
+.stag{display:inline-block;font-size:.72rem;font-weight:600;color:var(--moss);letter-spacing:.16em;text-transform:uppercase;margin-bottom:.8rem}
+h2.stitle{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700;line-height:1.15;color:var(--forest);margin-bottom:1rem}
+h2.stitle em{font-style:italic;color:var(--moss)}
+.sdesc{font-size:1rem;color:var(--text-mid);line-height:1.75;max-width:520px;margin-bottom:3rem}
+
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem}
+.svc{background:var(--cream2);border:1px solid rgba(45,106,63,.1);border-radius:18px;padding:2rem;transition:all .35s;position:relative;overflow:hidden}
+.svc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--canopy),var(--leaf));transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.svc:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(26,71,42,.12);border-color:rgba(45,106,63,.25)}
+.svc:hover::after{transform:scaleX(1)}
+.svc-ico{width:54px;height:54px;border-radius:14px;background:rgba(45,106,63,.12);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:1.2rem}
+.svc h3{font-family:'Playfair Display',serif;font-size:1.18rem;font-weight:700;color:var(--forest);margin-bottom:.55rem}
+.svc p{font-size:.87rem;color:var(--text-mid);line-height:1.6}
+
+/* WHY */
+.why-sec{background:var(--forest)}
+.why-sec h2.stitle{color:#fff}
+.why-sec .sdesc{color:rgba(255,255,255,.55)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.8rem}
+.why{background:rgba(255,255,255,.03);border:1px solid rgba(106,171,120,.14);border-radius:18px;padding:2rem;transition:all .3s}
+.why:hover{background:rgba(255,255,255,.06);border-color:rgba(106,171,120,.3);transform:translateY(-3px)}
+.why-n{font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;color:rgba(106,171,120,.15);line-height:1;margin-bottom:.7rem}
+.why h4{font-size:1rem;font-weight:600;color:#fff;margin-bottom:.5rem}
+.why p{font-size:.85rem;color:rgba(255,255,255,.48);line-height:1.65}
+
+/* VIDEO ESTIMATE */
+.vid-split{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.vid-visual{background:linear-gradient(135deg,var(--canopy),var(--deep));border-radius:24px;padding:3rem;position:relative;overflow:hidden;min-height:340px;display:flex;flex-direction:column;justify-content:center}
+.vid-visual::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(106,171,120,.1)}
+.vid-visual-ico{font-size:4rem;margin-bottom:1.5rem;position:relative}
+.vid-visual h3{font-family:'Playfair Display',serif;font-size:1.55rem;color:#fff;margin-bottom:.8rem;position:relative}
+.vid-visual p{font-size:.9rem;color:rgba(255,255,255,.62);line-height:1.65;position:relative}
+.vid-steps{display:flex;flex-direction:column;gap:1.5rem}
+.vstep{display:flex;gap:1.2rem;align-items:flex-start}
+.vnum{width:36px;height:36px;border-radius:50%;background:var(--canopy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0}
+.vbody h5{font-weight:600;font-size:.95rem;color:var(--forest);margin-bottom:.3rem}
+.vbody p{font-size:.85rem;color:var(--text-mid);line-height:1.5}
+
+/* REVIEWS */
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:3rem}
+.rev{background:var(--cream2);border-radius:18px;padding:2rem}
+.rev-stars{color:var(--gold);font-size:1rem;letter-spacing:2px;margin-bottom:1rem}
+.rev-text{font-family:'Playfair Display',serif;font-size:1.05rem;font-style:italic;color:var(--forest);line-height:1.65;margin-bottom:1.5rem}
+.rev-auth{display:flex;align-items:center;gap:12px}
+.rev-av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--canopy),var(--moss));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;color:#fff;flex-shrink:0}
+.rev-name{font-weight:600;font-size:.9rem;color:var(--forest)}
+.rev-loc{font-size:.78rem;color:var(--text-mute)}
+
+/* BOOKING */
+.book-sec{background:var(--forest);padding:6rem 5%;text-align:center}
+.book-inner{max-width:760px;margin:0 auto}
+.book-inner .stag{color:var(--sage)}
+.book-inner h2.stitle{color:#fff}
+.book-inner .sdesc{color:rgba(255,255,255,.58);margin:0 auto 3rem}
+.btn-book{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,var(--gold),var(--gold-lt));color:var(--forest);padding:1.15rem 2.8rem;border-radius:50px;font-weight:700;font-size:1.1rem;text-decoration:none;transition:all .3s;box-shadow:0 10px 32px rgba(212,160,23,.4)}
+.btn-book:hover{transform:translateY(-3px);box-shadow:0 20px 44px rgba(212,160,23,.5)}
+.or-call{margin-top:1.1rem;font-size:.9rem;color:rgba(255,255,255,.42)}
+.or-call a{color:var(--gold-lt);text-decoration:none;font-weight:600}
+.or-call a:hover{color:#fff}
+.perks{display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;margin-top:2.5rem}
+.perk{display:flex;align-items:center;gap:8px;font-size:.82rem;color:rgba(255,255,255,.48)}
+.perk::before{content:'✓';color:var(--sage);font-weight:700}
+
+/* EMERGENCY */
+.em-sec{background:linear-gradient(135deg,#7f1d1d,var(--red),var(--red-lt));padding:3.5rem 5%;text-align:center;position:relative;overflow:hidden}
+.em-sec::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 20px,rgba(0,0,0,.04) 20px,rgba(0,0,0,.04) 40px);pointer-events:none}
+.em-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:50px;padding:.4rem 1rem;margin-bottom:1.2rem;font-size:.78rem;font-weight:600;color:#fff;letter-spacing:.1em;text-transform:uppercase}
+.em-dot{width:8px;height:8px;background:#fff;border-radius:50%;animation:empulse 1s infinite}
+@keyframes empulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.7)}}
+.em-sec h3{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.5rem);font-weight:900;color:#fff;margin-bottom:.8rem;position:relative}
+.em-sec > p{font-size:1rem;color:rgba(255,255,255,.85);margin-bottom:1.5rem;position:relative}
+.em-btn{display:inline-flex;align-items:center;gap:12px;background:#fff;color:var(--red);padding:1rem 2.5rem;border-radius:50px;font-size:1.3rem;font-weight:800;text-decoration:none;box-shadow:0 8px 28px rgba(0,0,0,.25);transition:all .3s;position:relative}
+.em-btn:hover{transform:scale(1.04);box-shadow:0 14px 40px rgba(0,0,0,.3)}
+.em-note{margin-top:1.2rem;font-size:.85rem;color:rgba(255,255,255,.68);position:relative}
+
+/* FOOTER */
+footer{background:var(--deep);padding:3.5rem 5% 2rem}
+.ft-top{display:flex;flex-wrap:wrap;gap:3rem;justify-content:space-between;margin-bottom:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.07)}
+.ft-brand-name{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:#fff;margin-bottom:.4rem}
+.ft-brand-name span{color:var(--gold-lt)}
+.ft-col h5{font-size:.75rem;font-weight:600;color:var(--sage);text-transform:uppercase;letter-spacing:.12em;margin-bottom:1rem}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.ft-col ul li{font-size:.85rem;color:rgba(255,255,255,.42)}
+.ft-col a{color:rgba(255,255,255,.42);text-decoration:none;transition:color .2s}
+.ft-col a:hover{color:var(--gold-lt)}
+.ft-bottom{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center}
+.ft-copy{font-size:.8rem;color:rgba(255,255,255,.22)}
+.ft-copy a{color:rgba(255,255,255,.38);text-decoration:none}
+.ft-copy a:hover{color:var(--sage)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.vis{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+@media(max-width:900px){.hero-card{display:none}.vid-split{grid-template-columns:1fr}}
+@media(max-width:680px){.stats-inner{grid-template-columns:repeat(2,1fr)}.stat{border-right:none;border-bottom:1px solid rgba(255,255,255,.08)}.stat:nth-child(3),.stat:last-child{border-bottom:none}.ft-top{flex-direction:column;gap:2rem}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">🌳</div>
+    <div class="nav-logo-text">Heavenly Arbor Care<small>San Antonio, TX · Licensed &amp; Insured</small></div>
+  </a>
+  <div class="nav-right">
+    <a href="tel:2108155498" class="nav-phone-link">210-815-5498</a>
+    <a href="https://api.leadconnectorhq.com/widget/form/tO1CQEoKcm56IsYYboAq" target="_blank" class="nav-book">Free Estimate</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg-glow"></div>
+  <div class="hero-bg-glow2"></div>
+  <div class="hero-particles" id="pc"></div>
+  <div class="hero-trees">
+    <svg viewBox="0 0 1440 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,300 L0,220 Q20,180 40,220 Q60,260 80,200 Q100,140 130,180 Q160,220 180,160 Q200,100 230,150 Q260,200 290,130 Q320,60 360,120 Q400,180 430,100 Q460,20 500,90 Q540,160 570,80 Q600,0 640,80 Q680,160 710,70 Q740,0 780,70 Q820,140 850,60 Q880,0 920,70 Q960,140 990,80 Q1020,20 1060,90 Q1100,160 1130,100 Q1160,40 1200,110 Q1240,180 1270,120 Q1300,60 1340,130 Q1370,180 1400,140 Q1420,110 1440,160 L1440,300 Z" fill="rgba(26,71,42,0.75)"/>
+      <path d="M0,300 L0,260 Q40,230 80,260 Q120,290 160,240 Q200,190 250,230 Q300,270 350,210 Q400,150 450,200 Q500,250 550,190 Q600,130 660,190 Q720,250 770,190 Q820,130 880,190 Q940,250 990,200 Q1040,150 1100,200 Q1160,250 1210,210 Q1260,170 1310,220 Q1360,270 1440,230 L1440,300 Z" fill="rgba(10,31,19,0.92)"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <div class="eyebrow"><span class="eyebrow-dot"></span>San Antonio &amp; Bexar County · 5+ Years</div>
+    <h1 class="hero-title">
+      San Antonio's<br>
+      <em>Trusted</em>
+      <span class="underline">Tree Experts</span>
+    </h1>
+    <p class="hero-sub">Get a personalized video estimate within 24 hours — see exactly what we'll do, how long it takes, and the total cost. No surprises, just expert tree care.</p>
+    <div class="hero-btns">
+      <a href="https://api.leadconnectorhq.com/widget/form/tO1CQEoKcm56IsYYboAq" target="_blank" class="btn-main" id="heroBook">📋 Book Your Free Estimate</a>
+      <a href="tel:2108155498" class="btn-ghost">📞 Call Ricardo Now</a>
+    </div>
+    <div class="trust-row">
+      <div class="trust-item">Licensed &amp; Insured</div>
+      <div class="trust-item">$2M Liability Coverage</div>
+      <div class="trust-item">24/7 Emergency Response</div>
+      <div class="trust-item">Video Estimates Included</div>
+    </div>
+  </div>
+  <div class="hero-card">
+    <div class="hero-card-icon">🎬</div>
+    <h4>Video Estimate<br>Within 24 Hours</h4>
+    <p>We show you the work plan before we lift a single branch — on video, personalized to your property.</p>
+    <span class="hero-card-badge">✦ Exclusive to Heavenly Arbor</span>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-n">5<span style="font-size:1.4rem">+</span></div><div class="stat-l">Years Serving SA</div></div>
+    <div class="stat"><div class="stat-n">24<span style="font-size:1.4rem">/7</span></div><div class="stat-l">Emergency Response</div></div>
+    <div class="stat"><div class="stat-n">$2M</div><div class="stat-l">Liability Insurance</div></div>
+    <div class="stat"><div class="stat-n">100<span style="font-size:1.4rem">%</span></div><div class="stat-l">Satisfaction Rate</div></div>
+  </div>
+</div>
+
+<section class="sec" style="background:var(--white)" id="services">
+  <div class="si">
+    <div class="stag reveal">What We Do</div>
+    <h2 class="stitle reveal">Complete Tree Care,<br><em>Done Right</em></h2>
+    <p class="sdesc reveal">From single-tree trimming to full land clearing — we handle every job with the care, equipment, and expertise it deserves.</p>
+    <div class="svc-grid">
+      <div class="svc reveal d1"><div class="svc-ico">🪚</div><h3>Tree Removal</h3><p>Safe, efficient removal of hazardous, dead, or unwanted trees. We protect your property throughout the entire process.</p></div>
+      <div class="svc reveal d2"><div class="svc-ico">✂️</div><h3>Tree Trimming</h3><p>Shape, thin, and improve your trees' health and appearance with proper cuts that promote long-term growth.</p></div>
+      <div class="svc reveal d3"><div class="svc-ico">⚡</div><h3>Storm Damage Cleanup</h3><p>Fast response to storm-damaged trees. We secure your property and restore safety as quickly as possible.</p></div>
+      <div class="svc reveal d1"><div class="svc-ico">🌀</div><h3>Stump Grinding</h3><p>Complete stump removal below ground level. Reclaim your yard and permanently eliminate trip hazards.</p></div>
+      <div class="svc reveal d2"><div class="svc-ico">🚨</div><h3>Emergency Tree Service</h3><p>Available 24/7. When a tree threatens your home or family, Ricardo responds immediately — day or night.</p></div>
+      <div class="svc reveal d3"><div class="svc-ico">🌿</div><h3>Land Clearing</h3><p>Lot clearing for construction, landscaping, or property clean-up. Efficient, thorough, and complete.</p></div>
+      <div class="svc reveal d1"><div class="svc-ico">🔍</div><h3>Tree Health Assessment</h3><p>Diagnose disease, structural issues, and risk factors before they become costly or dangerous problems.</p></div>
+      <div class="svc reveal d2"><div class="svc-ico">🛡️</div><h3>Preventive Maintenance</h3><p>Regular care plans to keep your trees healthy, beautiful, and safe every season of the year.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--cream)" id="how-it-works">
+  <div class="si">
+    <div class="vid-split">
+      <div class="reveal">
+        <div class="stag">Our Signature Process</div>
+        <h2 class="stitle">The <em>Video Estimate</em><br>No One Else Offers</h2>
+        <p class="sdesc">Most companies send someone over to wave their hands and quote a number. We do it differently — and better.</p>
+        <div class="vid-steps">
+          <div class="vstep reveal d1"><div class="vnum">1</div><div class="vbody"><h5>Book Online in 2 Minutes</h5><p>Fill out our quick form. Tell us about your trees and what needs to be done.</p></div></div>
+          <div class="vstep reveal d2"><div class="vnum">2</div><div class="vbody"><h5>We Visit &amp; Film Your Property</h5><p>Ricardo or his team visits your property and captures everything on camera.</p></div></div>
+          <div class="vstep reveal d3"><div class="vnum">3</div><div class="vbody"><h5>Receive Your Video Estimate</h5><p>A personalized video showing the exact work plan, timeline, and price — within 24 hours.</p></div></div>
+          <div class="vstep reveal d1"><div class="vnum">4</div><div class="vbody"><h5>Approve &amp; We Get to Work</h5><p>Love it? Say the word. We show up on time and deliver exactly what we showed you.</p></div></div>
+        </div>
+      </div>
+      <div class="vid-visual reveal d2">
+        <div class="vid-visual-ico">🎬</div>
+        <h3>See Before You Commit</h3>
+        <p>Your estimate shows exactly what work will be done, which trees are involved, what equipment we'll use, and the final cost. No vague quotes, no invoice-day surprises.</p>
+        <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.1)">
+          <p style="font-size:.8rem;color:rgba(255,255,255,.4)">Typical response time</p>
+          <p style="font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--gold-lt);font-weight:700">Under 24 Hours</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec why-sec" id="why-us">
+  <div class="si">
+    <div class="stag" style="color:var(--sage)">Why Choose Us</div>
+    <h2 class="stitle reveal">We Take Your Trees<br><em>Seriously</em></h2>
+    <p class="sdesc reveal">Heavenly Arbor Care isn't a franchise or a side hustle. It's Ricardo's craft — and he stands behind every single job.</p>
+    <div class="why-grid">
+      <div class="why reveal d1"><div class="why-n">01</div><h4>Fully Licensed &amp; Insured</h4><p>$2 million in liability coverage. You're fully protected from the moment we pull into your driveway.</p></div>
+      <div class="why reveal d2"><div class="why-n">02</div><h4>Transparent Pricing</h4><p>Your video estimate is your final price. No hidden fees, no upsells, no surprises on the day of service.</p></div>
+      <div class="why reveal d3"><div class="why-n">03</div><h4>24/7 Emergency Availability</h4><p>Storms don't wait for business hours. Neither does Ricardo. Call anytime — he picks up.</p></div>
+      <div class="why reveal d1"><div class="why-n">04</div><h4>Local San Antonio Expertise</h4><p>We know Texas Live Oaks, Cedar Elms, Pecans, and local soil. 5+ years serving all of Bexar County.</p></div>
+      <div class="why reveal d2"><div class="why-n">05</div><h4>Owner On Every Job</h4><p>Ricardo doesn't just send a crew — he's there, personally overseeing your project from start to finish.</p></div>
+      <div class="why reveal d3"><div class="why-n">06</div><h4>Clean, Complete Cleanup</h4><p>We haul everything away and leave your property cleaner than we found it. Every single time. Guaranteed.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--white)" id="reviews">
+  <div class="si">
+    <div class="stag reveal">What Clients Say</div>
+    <h2 class="stitle reveal">San Antonio Homeowners<br><em>Trust Ricardo</em></h2>
+    <div class="rev-grid">
+      <div class="rev reveal d1">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Ricardo came out the day after the storm and cleared two fallen trees from our yard. Professional, fast, and fairly priced. The video estimate made us feel 100% confident going in."</p>
+        <div class="rev-auth"><div class="rev-av">JM</div><div><div class="rev-name">Juan M.</div><div class="rev-loc">Alamo Heights, San Antonio</div></div></div>
+      </div>
+      <div class="rev reveal d2">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"They trimmed three giant oaks and ground two stumps. The video estimate was a game-changer — I knew exactly what to expect before they started. Absolutely incredible service."</p>
+        <div class="rev-auth"><div class="rev-av">TL</div><div><div class="rev-name">Tracy L.</div><div class="rev-loc">Leon Valley, San Antonio</div></div></div>
+      </div>
+      <div class="rev reveal d3">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Called at 11pm after a limb crashed into our fence. Ricardo answered immediately and was here by 7am. Cleaned everything up perfectly. The price was completely fair. 10 out of 10."</p>
+        <div class="rev-auth"><div class="rev-av">CR</div><div><div class="rev-name">Carlos R.</div><div class="rev-loc">Castle Hills, San Antonio</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="book-sec" id="book">
+  <div class="book-inner">
+    <div class="stag reveal">Get Started Today</div>
+    <h2 class="stitle reveal">Book Your Free<br><em>Video Estimate</em></h2>
+    <p class="sdesc reveal">Click below and we'll contact you within 1 hour to schedule. No cost, no commitment — just expert advice and a completely transparent quote.</p>
+    <a href="https://api.leadconnectorhq.com/widget/form/tO1CQEoKcm56IsYYboAq" target="_blank" class="btn-book reveal" id="mainBook">📋 Book Online Now — It's Free</a>
+    <div class="or-call reveal">Prefer to call or text? Reach Ricardo directly: <a href="tel:2108155498">210-815-5498</a></div>
+    <div class="perks reveal">
+      <div class="perk">No cost, no obligation</div>
+      <div class="perk">Response within 1 hour</div>
+      <div class="perk">Video estimate in 24 hours</div>
+      <div class="perk">Free on-site assessment</div>
+    </div>
+  </div>
+</section>
+
+<section class="em-sec" id="emergency">
+  <div class="em-badge"><span class="em-dot"></span>24/7 Emergency Line Active</div>
+  <h3>🚨 Tree Emergency?</h3>
+  <p id="emText">Fallen tree, dangerous limb, or storm damage — Ricardo responds immediately, day or night.</p>
+  <a href="tel:2108155498" class="em-btn">📞 CALL NOW: 210-815-5498</a>
+  <p class="em-note">24/7 emergency response &nbsp;·&nbsp; Same-day service &nbsp;·&nbsp; Immediate safety assessment</p>
+</section>
+
+<footer>
+  <div class="ft-top">
+    <div>
+      <div class="ft-brand-name">Heavenly <span>Arbor</span> Care</div>
+      <p style="font-size:.75rem;color:rgba(255,255,255,.28);margin:.4rem 0 .7rem">TRUTH J BLUE LLC · Ricardo Camacho, Owner</p>
+      <p style="font-size:.83rem;color:rgba(255,255,255,.38);line-height:1.6;max-width:250px">Serving San Antonio and all of Bexar County with professional, transparent tree care since 2019.</p>
+    </div>
+    <div class="ft-col">
+      <h5>Services</h5>
+      <ul><li>Tree Removal</li><li>Tree Trimming</li><li>Storm Damage</li><li>Stump Grinding</li><li>Emergency Service</li><li>Land Clearing</li></ul>
+    </div>
+    <div class="ft-col">
+      <h5>Service Area</h5>
+      <ul><li>San Antonio</li><li>Leon Valley</li><li>Alamo Heights</li><li>Castle Hills</li><li>All of Bexar County</li></ul>
+    </div>
+    <div class="ft-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="tel:2108155498">📞 210-815-5498</a></li>
+        <li><a href="mailto:ricardo@inspirebuildmotivate.com">✉️ Email Ricardo</a></li>
+        <li>Mon–Sun 7AM–7PM</li>
+        <li style="color:var(--sage)">Emergency: 24/7</li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <div class="ft-copy">© <span id="yr"></span> Heavenly Arbor Care Services · TRUTH J BLUE LLC · <a href="https://allpowerfulmarketing.com" target="_blank">allpowerfulmarketing.com</a></div>
+    <div style="font-size:.78rem;color:rgba(255,255,255,.18)">Licensed &amp; Insured · San Antonio, TX</div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// Particles
+const pc = document.getElementById('pc');
+for(let i=0;i<40;i++){
+  const p=document.createElement('div');
+  p.className='particle';
+  p.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*85}%;--d:${2+Math.random()*4}s;--del:${Math.random()*5}s`;
+  pc.appendChild(p);
+}
+
+// Reveal on scroll
+const revEls = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)}});
+},{threshold:0.1});
+revEls.forEach(r=>obs.observe(r));
+
+// Nav shrink
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{
+  nav.style.padding=window.scrollY>50?'0.65rem 4%':'1rem 4%';
+});
+
+// Emergency message
+const hr=new Date().getHours();
+if(hr<7||hr>=19){
+  document.getElementById('emText').textContent=
+    "It's after hours — but Ricardo is still available for tree emergencies. Call now for an immediate response.";
+}
+
+// Analytics
+document.querySelectorAll('a[href*="leadconnectorhq"]').forEach(el=>{
+  el.addEventListener('click',()=>{
+    if(typeof gtag!=='undefined'){
+      gtag('event','conversion',{'send_to':'AW-123456789/AbC-D_efGhIjKlMnOpQrSt'});
+    }
+  });
+});
+</script>
+</body>
+</html>
