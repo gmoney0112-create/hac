@@ -39,3 +39,36 @@ The form is embedded via a link to `https://api.leadconnectorhq.com/widget/form/
 ## Other known follow-ups
 
 - **GA4** — a commented placeholder for Google Analytics 4 exists near the top of `index.html`. When Ricardo provides the Measurement ID (`G-XXXXXXXXXX`), uncomment the two lines and substitute the real ID.
+
+## Launch Gate
+
+Two scripts guard launch readiness. Node 18+ required.
+
+```
+npm run check       # offline static validation (also runs in CI on push/PR to main)
+npm run smoke:live  # optional network smoke check of the live deployment + GHL form
+```
+
+### What `npm run check` verifies (offline, no network)
+
+- `index.html` and `privacy.html` exist
+- `index.html` has the expected `<title>`, `<link rel="canonical">`, and `og:url` — all pinned to `https://gmoney0112-create.github.io/hac/`
+- All `<meta>` tags are closed on the same line (guards the previously-seen malformed `twitter:description` bug)
+- Every absolute local `href` starts with `/hac/` (GitHub Pages project path) and resolves to a real file
+- `privacy.html` back link routes to `/hac/`
+- Every LeadConnector CTA uses the exact form URL `https://api.leadconnectorhq.com/widget/form/tO1CQEoKcm56IsYYboAq`, including the nav "Free Estimate" button, `#heroBook`, and `#mainBook`
+- No `localStorage`, `sessionStorage`, `indexedDB`, or `document.cookie` usage anywhere in the site
+- No unresolved `[PLACEHOLDER]` or `G-XXXXXXXXXX` strings outside the documented spots (commented GA4 block in `index.html`, GHL checklist section in this README)
+
+CI: `.github/workflows/check.yml` runs `npm run check` on every push and PR to `main`.
+
+### What `npm run smoke:live` verifies (network)
+
+- `https://gmoney0112-create.github.io/hac/` returns 200 and contains the brand name and form URL
+- `https://gmoney0112-create.github.io/hac/privacy.html` returns 200 and contains the SMS privacy section
+- `https://api.leadconnectorhq.com/widget/form/tO1CQEoKcm56IsYYboAq` returns 200 with non-empty HTML
+- Warns (does not fail) when the live GHL form still contains `[BUSINESS NAME]`, `[USE_CASE_FROM_CAMPAIGN_DESCRIPTION]`, or a literal `Button` submit label — these are fixed inside GoHighLevel, not in this repo. Smoke exits non-zero only for broken endpoints or empty/missing form HTML. It is intentionally not run in CI.
+
+### What still has to be checked manually inside GHL
+
+The checks above cannot touch the form builder. Before launch, an operator must log into GoHighLevel and confirm the items in "Production Readiness & GHL Handoff" above — specifically: rename the submit button, replace the SMS consent placeholders with the real business name and A2P 10DLC use case, then submit a real test lead and confirm notifications and workflows fire.

@@ -1,0 +1,14 @@
+{
+  "name": "hac-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static marketing site for Heavenly Arbor Care (GitHub Pages).",
+  "scripts": {
+    "check": "node scripts/validate.js",
+    "validate": "node scripts/validate.js",
+    "smoke:live": "node scripts/smoke-live.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
