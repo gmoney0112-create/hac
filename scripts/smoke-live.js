@@ -12,6 +12,7 @@
 
 const SITE = 'https://gmoney0112-create.github.io/hac/';
 const PRIVACY = 'https://gmoney0112-create.github.io/hac/privacy.html';
+const TERMS = 'https://gmoney0112-create.github.io/hac/terms.html';
 const FORM = 'https://api.leadconnectorhq.com/widget/form/tO1CQEoKcm56IsYYboAq';
 
 const GREEN = '\x1b[32m', RED = '\x1b[31m', YELLOW = '\x1b[33m', DIM = '\x1b[2m', RESET = '\x1b[0m';
@@ -72,6 +73,19 @@ async function check(label, url, { expectHtmlContains = [], ghlSoftChecks = fals
           warnings++;
         }
       }
+      // Terms-of-service link: during the temporary launch-safe setup, Terms
+      // points to /hac/privacy.html. Warn (don't fail) until GHL is updated to
+      // the real /hac/terms.html URL.
+      const hasTermsUrl = /gmoney0112-create\.github\.io\/hac\/terms\.html/.test(r.text);
+      const hasPrivacyUrl = /gmoney0112-create\.github\.io\/hac\/privacy\.html/.test(r.text);
+      if (!hasTermsUrl) {
+        if (hasPrivacyUrl) {
+          console.log(`    ${YELLOW}!${RESET} GHL caveat: Terms link still points to /hac/privacy.html (update inside GoHighLevel to https://gmoney0112-create.github.io/hac/terms.html)`);
+        } else {
+          console.log(`    ${YELLOW}!${RESET} GHL caveat: Terms link does not reference /hac/terms.html yet (update inside GoHighLevel to https://gmoney0112-create.github.io/hac/terms.html)`);
+        }
+        warnings++;
+      }
     }
   } catch (err) {
     console.log(`${RED}FAIL${RESET} (${err.message})`);
@@ -83,6 +97,7 @@ async function check(label, url, { expectHtmlContains = [], ghlSoftChecks = fals
   console.log(`${DIM}HAC live smoke check${RESET}`);
   await check('site     ', SITE, { expectHtmlContains: ['Heavenly Arbor Care', 'leadconnectorhq.com/widget/form/tO1CQEoKcm56IsYYboAq'] });
   await check('privacy  ', PRIVACY, { expectHtmlContains: ['Privacy Policy', 'SMS'] });
+  await check('terms    ', TERMS, { expectHtmlContains: ['Terms of Service', 'Heavenly Arbor Care'] });
   await check('ghl form ', FORM, { ghlSoftChecks: true });
 
   console.log('');

@@ -11,6 +11,7 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const INDEX = path.join(ROOT, 'index.html');
 const PRIVACY = path.join(ROOT, 'privacy.html');
+const TERMS = path.join(ROOT, 'terms.html');
 const README = path.join(ROOT, 'README.md');
 
 const PAGES_BASE = '/hac/';
@@ -37,9 +38,11 @@ function read(p) {
 // 1. Required files
 const indexHtml = read(INDEX);
 const privacyHtml = read(PRIVACY);
+const termsHtml = read(TERMS);
 const readme = read(README);
 if (indexHtml) pass('index.html present');
 if (privacyHtml) pass('privacy.html present');
+if (termsHtml) pass('terms.html present');
 if (readme) pass('README.md present');
 
 // 2. index.html head checks
@@ -105,6 +108,50 @@ if (privacyHtml) {
   } else pass('privacy.html: back link points to /hac/');
 }
 
+if (termsHtml) {
+  // Back link must route correctly for Pages.
+  if (!/href="\/hac\/"/.test(termsHtml)) {
+    fail('terms.html: back link should be href="/hac/" for GitHub Pages project path');
+  } else pass('terms.html: back link points to /hac/');
+
+  // Guard against malformed <meta> tags (same rule used on index.html).
+  const termsMetaOpen = termsHtml.match(/<meta[^>]*$/gm) || [];
+  if (termsMetaOpen.length > 0) {
+    fail(`terms.html: ${termsMetaOpen.length} malformed <meta> tag(s) not closed on same line`);
+  } else pass('terms.html: all <meta> tags appear closed');
+
+  // Every absolute local href must route under /hac/ and resolve to a real file.
+  const termsLocalHrefs = [...termsHtml.matchAll(/href="(\/[^"#?]*)"/g)].map(m => m[1]);
+  let termsHrefsOk = true;
+  for (const href of termsLocalHrefs) {
+    if (!href.startsWith(PAGES_BASE)) {
+      fail(`terms.html: absolute local href "${href}" does not start with ${PAGES_BASE} (will 404 on GitHub Pages project site)`);
+      termsHrefsOk = false;
+      continue;
+    }
+    const rel = href.slice(PAGES_BASE.length);
+    if (rel === '' || rel.endsWith('/')) continue;
+    const localPath = path.join(ROOT, rel);
+    if (!fs.existsSync(localPath)) {
+      fail(`terms.html: local href "${href}" points to missing file "${rel}"`);
+      termsHrefsOk = false;
+    }
+  }
+  if (termsHrefsOk && termsLocalHrefs.length > 0) {
+    pass(`terms.html: ${termsLocalHrefs.length} absolute local href(s) all under ${PAGES_BASE} and resolve`);
+  }
+}
+
+// index.html footer must link to both privacy and terms so users can reach them.
+if (indexHtml) {
+  if (!/href="\/hac\/privacy\.html"/.test(indexHtml)) {
+    fail('index.html: footer Privacy Policy link href="/hac/privacy.html" not found');
+  } else pass('index.html: Privacy Policy link wired to /hac/privacy.html');
+  if (!/href="\/hac\/terms\.html"/.test(indexHtml)) {
+    fail('index.html: footer Terms of Service link href="/hac/terms.html" not found');
+  } else pass('index.html: Terms of Service link wired to /hac/terms.html');
+}
+
 // 4. Book/estimate CTA wiring — every link to LeadConnector should use the exact form URL.
 if (indexHtml) {
   const lcMatches = [...indexHtml.matchAll(/href="(https?:\/\/api\.leadconnectorhq\.com\/[^"]+)"/g)].map(m => m[1]);
@@ -132,7 +179,7 @@ if (indexHtml) {
 
 // 5. Forbidden storage APIs
 const forbidden = ['localStorage', 'sessionStorage', 'indexedDB', 'document.cookie'];
-for (const file of [INDEX, PRIVACY]) {
+for (const file of [INDEX, PRIVACY, TERMS]) {
   if (!fs.existsSync(file)) continue;
   const src = fs.readFileSync(file, 'utf8');
   for (const api of forbidden) {
@@ -141,7 +188,7 @@ for (const file of [INDEX, PRIVACY]) {
     }
   }
 }
-pass('no forbidden storage APIs in index.html or privacy.html');
+pass('no forbidden storage APIs in index.html, privacy.html, or terms.html');
 
 // 6. Unresolved placeholders
 // Allowed: GA4 placeholder G-XXXXXXXXXX inside the commented <!-- GA4 --> block,
@@ -178,6 +225,7 @@ function scanPlaceholders(src, label, { allowGA4Comment = false, allowGhlCheckli
 
 if (indexHtml) scanPlaceholders(indexHtml, 'index.html', { allowGA4Comment: true });
 if (privacyHtml) scanPlaceholders(privacyHtml, 'privacy.html');
+if (termsHtml) scanPlaceholders(termsHtml, 'terms.html');
 if (readme) scanPlaceholders(readme, 'README.md', { allowGhlChecklist: true });
 pass('no unresolved placeholders outside documented locations');
 
