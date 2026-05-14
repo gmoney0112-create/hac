@@ -17,7 +17,7 @@ const README = path.join(ROOT, 'README.md');
 const PAGES_BASE = '/hac/';
 const CANONICAL = 'https://gmoney0112-create.github.io/hac/';
 const FORM_URL = 'https://api.leadconnectorhq.com/widget/form/tO1CQEoKcm56IsYYboAq';
-const EXPECTED_TITLE = 'Heavenly Arbor Care – Professional Tree Services in San Antonio';
+const EXPECTED_TITLE = 'Master Hand Arbor Care – Professional Tree Services in San Antonio';
 
 const errors = [];
 const warnings = [];

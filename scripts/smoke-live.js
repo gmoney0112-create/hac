@@ -95,9 +95,9 @@ async function check(label, url, { expectHtmlContains = [], ghlSoftChecks = fals
 
 (async () => {
   console.log(`${DIM}HAC live smoke check${RESET}`);
-  await check('site     ', SITE, { expectHtmlContains: ['Heavenly Arbor Care', 'leadconnectorhq.com/widget/form/tO1CQEoKcm56IsYYboAq'] });
+  await check('site     ', SITE, { expectHtmlContains: ['Master Hand Arbor Care', 'leadconnectorhq.com/widget/form/tO1CQEoKcm56IsYYboAq'] });
   await check('privacy  ', PRIVACY, { expectHtmlContains: ['Privacy Policy', 'SMS'] });
-  await check('terms    ', TERMS, { expectHtmlContains: ['Terms of Service', 'Heavenly Arbor Care'] });
+  await check('terms    ', TERMS, { expectHtmlContains: ['Terms of Service', 'Master Hand Arbor Care'] });
   await check('ghl form ', FORM, { ghlSoftChecks: true });
 
   console.log('');
