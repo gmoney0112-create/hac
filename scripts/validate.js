@@ -13,11 +13,14 @@ const INDEX = path.join(ROOT, 'index.html');
 const PRIVACY = path.join(ROOT, 'privacy.html');
 const TERMS = path.join(ROOT, 'terms.html');
 const README = path.join(ROOT, 'README.md');
+const SITEMAP = path.join(ROOT, 'sitemap.xml');
+const ROBOTS = path.join(ROOT, 'robots.txt');
+const NOT_FOUND = path.join(ROOT, '404.html');
 
 const PAGES_BASE = '/hac/';
 const CANONICAL = 'https://gmoney0112-create.github.io/hac/';
 const FORM_URL = 'https://api.leadconnectorhq.com/widget/form/tO1CQEoKcm56IsYYboAq';
-const EXPECTED_TITLE = 'Heavenly Arbor Care – Professional Tree Services in San Antonio';
+const EXPECTED_TITLE = 'Master Hand Arbor Care – Professional Tree Services in San Antonio';
 
 const errors = [];
 const warnings = [];
@@ -40,10 +43,16 @@ const indexHtml = read(INDEX);
 const privacyHtml = read(PRIVACY);
 const termsHtml = read(TERMS);
 const readme = read(README);
+const sitemapXml = read(SITEMAP);
+const robotsTxt = read(ROBOTS);
+const notFoundHtml = read(NOT_FOUND);
 if (indexHtml) pass('index.html present');
 if (privacyHtml) pass('privacy.html present');
 if (termsHtml) pass('terms.html present');
 if (readme) pass('README.md present');
+if (sitemapXml) pass('sitemap.xml present');
+if (robotsTxt) pass('robots.txt present');
+if (notFoundHtml) pass('404.html present');
 
 // 2. index.html head checks
 if (indexHtml) {
@@ -75,6 +84,27 @@ if (indexHtml) {
   const twDesc = indexHtml.match(/<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/?>/);
   if (!twDesc) fail('index.html: twitter:description meta missing or malformed (must match name="twitter:description" content="...")');
   else pass('index.html: twitter:description well-formed');
+
+  // og:image present
+  if (!/<meta\s+property="og:image"\s+content="[^"]+"\s*\/?>/.test(indexHtml)) {
+    fail('index.html: og:image meta tag missing');
+  } else pass('index.html: og:image present');
+
+  // twitter:card should be summary_large_image when og:image is set
+  const twCard = indexHtml.match(/<meta\s+name="twitter:card"\s+content="([^"]+)"\s*\/?>/);
+  if (!twCard) fail('index.html: twitter:card meta missing');
+  else if (twCard[1] !== 'summary_large_image') warn(`index.html: twitter:card is "${twCard[1]}" — consider "summary_large_image" when og:image is set`);
+  else pass('index.html: twitter:card is summary_large_image');
+
+  // JSON-LD LocalBusiness schema present
+  if (!indexHtml.includes('"@type": "LocalBusiness"')) {
+    fail('index.html: JSON-LD LocalBusiness schema missing');
+  } else pass('index.html: JSON-LD LocalBusiness schema present');
+
+  // Google Fonts preconnect hints
+  if (!indexHtml.includes('rel="preconnect" href="https://fonts.googleapis.com"')) {
+    warn('index.html: missing preconnect hint for fonts.googleapis.com');
+  } else pass('index.html: fonts.googleapis.com preconnect present');
 }
 
 // 3. Local href/src resolution + Pages-path correctness
@@ -228,6 +258,33 @@ if (privacyHtml) scanPlaceholders(privacyHtml, 'privacy.html');
 if (termsHtml) scanPlaceholders(termsHtml, 'terms.html');
 if (readme) scanPlaceholders(readme, 'README.md', { allowGhlChecklist: true });
 pass('no unresolved placeholders outside documented locations');
+
+// 7. sitemap.xml content checks
+if (sitemapXml) {
+  if (!sitemapXml.includes(CANONICAL)) {
+    fail(`sitemap.xml: canonical URL "${CANONICAL}" not found in sitemap`);
+  } else pass('sitemap.xml: canonical URL present');
+  if (!sitemapXml.includes('privacy.html')) fail('sitemap.xml: privacy.html URL missing');
+  else pass('sitemap.xml: privacy.html URL present');
+  if (!sitemapXml.includes('terms.html')) fail('sitemap.xml: terms.html URL missing');
+  else pass('sitemap.xml: terms.html URL present');
+}
+
+// 8. robots.txt content checks
+if (robotsTxt) {
+  if (!/User-agent:\s*\*/i.test(robotsTxt)) fail('robots.txt: User-agent: * directive missing');
+  else pass('robots.txt: User-agent: * present');
+  if (!robotsTxt.includes('sitemap.xml')) fail('robots.txt: Sitemap directive missing');
+  else pass('robots.txt: Sitemap directive present');
+}
+
+// 9. 404.html checks
+if (notFoundHtml) {
+  if (!/href="\/hac\/"/.test(notFoundHtml)) fail('404.html: link back to /hac/ missing');
+  else pass('404.html: link back to /hac/ present');
+  if (!notFoundHtml.includes('noindex')) warn('404.html: meta noindex not set — search engines may index the error page');
+  else pass('404.html: meta noindex set');
+}
 
 // --- Report ---
 const GREEN = '\x1b[32m', RED = '\x1b[31m', YELLOW = '\x1b[33m', DIM = '\x1b[2m', RESET = '\x1b[0m';

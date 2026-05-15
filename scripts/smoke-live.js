@@ -13,6 +13,8 @@
 const SITE = 'https://gmoney0112-create.github.io/hac/';
 const PRIVACY = 'https://gmoney0112-create.github.io/hac/privacy.html';
 const TERMS = 'https://gmoney0112-create.github.io/hac/terms.html';
+const SITEMAP = 'https://gmoney0112-create.github.io/hac/sitemap.xml';
+const ROBOTS = 'https://gmoney0112-create.github.io/hac/robots.txt';
 const FORM = 'https://api.leadconnectorhq.com/widget/form/tO1CQEoKcm56IsYYboAq';
 
 const GREEN = '\x1b[32m', RED = '\x1b[31m', YELLOW = '\x1b[33m', DIM = '\x1b[2m', RESET = '\x1b[0m';
@@ -95,9 +97,11 @@ async function check(label, url, { expectHtmlContains = [], ghlSoftChecks = fals
 
 (async () => {
   console.log(`${DIM}HAC live smoke check${RESET}`);
-  await check('site     ', SITE, { expectHtmlContains: ['Heavenly Arbor Care', 'leadconnectorhq.com/widget/form/tO1CQEoKcm56IsYYboAq'] });
+  await check('site     ', SITE, { expectHtmlContains: ['Master Hand Arbor Care', 'leadconnectorhq.com/widget/form/tO1CQEoKcm56IsYYboAq'] });
   await check('privacy  ', PRIVACY, { expectHtmlContains: ['Privacy Policy', 'SMS'] });
-  await check('terms    ', TERMS, { expectHtmlContains: ['Terms of Service', 'Heavenly Arbor Care'] });
+  await check('terms    ', TERMS, { expectHtmlContains: ['Terms of Service', 'Master Hand Arbor Care'] });
+  await check('sitemap  ', SITEMAP, { expectHtmlContains: ['gmoney0112-create.github.io/hac/'] });
+  await check('robots   ', ROBOTS, { expectHtmlContains: ['sitemap.xml'] });
   await check('ghl form ', FORM, { ghlSoftChecks: true });
 
   console.log('');

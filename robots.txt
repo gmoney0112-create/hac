@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gmoney0112-create.github.io/hac/sitemap.xml
