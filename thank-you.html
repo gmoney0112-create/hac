@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quote Request Received &mdash; ProFlow Plumbing</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F527;</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --navy:#0b1a2e;
+      --copper:#c47c1e;
+      --copper-light:#df9b3a;
+      --white:#ffffff;
+      --ink:#0b1a2e;
+      --muted:rgba(11,26,46,0.70);
+      --border:rgba(255,255,255,0.18);
+      --r:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:28px 18px;
+      color:var(--ink);
+      background:
+        radial-gradient(1100px 700px at 18% 12%, rgba(196,124,30,0.18), transparent 60%),
+        radial-gradient(900px 520px at 88% 18%, rgba(26,53,84,0.4), transparent 55%),
+        linear-gradient(180deg, #060e1c 0%, #0b1a2e 60%, #0a1828 100%);
+      font-family:'DM Sans', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+    .wrap{width:100%; max-width:720px;}
+    .card{
+      background:rgba(255,255,255,0.97);
+      border:1px solid rgba(255,255,255,0.22);
+      border-radius:var(--r);
+      padding:40px 32px;
+      box-shadow:0 28px 70px rgba(0,0,0,0.35);
+      text-align:center;
+    }
+    .mark{
+      width:90px;height:90px;
+      margin:0 auto 20px;
+      border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(135deg, var(--copper-light), var(--copper));
+      box-shadow:0 12px 32px rgba(196,124,30,0.4);
+      font-size:40px;
+    }
+    h1{
+      font-family:'Cormorant Garamond', serif;
+      font-weight:600;
+      margin:0 0 12px;
+      font-size:44px;
+      color:var(--navy);
+      letter-spacing:0.2px;
+    }
+    .sub{
+      font-size:1.05rem;
+      font-weight:600;
+      color:var(--copper);
+      margin-bottom:12px;
+      letter-spacing:.01em;
+    }
+    p{
+      margin:0 auto 24px;
+      max-width:520px;
+      line-height:1.7;
+      font-size:16px;
+      color:var(--muted);
+    }
+    .what-next{
+      background:#f8f4ef;
+      border-radius:12px;
+      padding:1.2rem 1.5rem;
+      margin:0 auto 24px;
+      max-width:480px;
+      text-align:left;
+    }
+    .what-next h3{
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.1rem;
+      color:var(--navy);
+      margin-bottom:.7rem;
+    }
+    .what-next ul{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:flex;
+      flex-direction:column;
+      gap:.5rem;
+    }
+    .what-next li{
+      font-size:.9rem;
+      color:var(--muted);
+      display:flex;
+      align-items:flex-start;
+      gap:.5rem;
+      line-height:1.5;
+    }
+    .what-next li::before{
+      content:'\2713';
+      color:var(--copper);
+      font-weight:700;
+      flex-shrink:0;
+      margin-top:1px;
+    }
+    .btn-row{
+      display:flex;
+      gap:.8rem;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-bottom:1.2rem;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      text-decoration:none;
+      padding:12px 24px;
+      border-radius:50px;
+      font-weight:600;
+      letter-spacing:0.2px;
+      transition:transform .15s, box-shadow .15s;
+    }
+    .btn-primary{
+      color:var(--white);
+      background:var(--copper);
+      box-shadow:0 8px 28px rgba(196,124,30,0.35);
+    }
+    .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 34px rgba(196,124,30,0.4);background:var(--copper-light);}
+    .btn-secondary{
+      color:var(--navy);
+      background:rgba(11,26,46,0.07);
+      border:1.5px solid rgba(11,26,46,0.18);
+    }
+    .btn-secondary:hover{transform:translateY(-1px);background:rgba(11,26,46,0.12);}
+    .fine{
+      margin-top:12px;
+      font-size:12px;
+      color:rgba(11,26,46,0.5);
+    }
+    .fine a{color:rgba(11,26,46,0.7);}
+    @media (max-width:520px){
+      h1{font-size:36px}
+      .card{padding:28px 18px}
+      .mark{width:78px;height:78px;font-size:34px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="mark">&#x1F527;</div>
+      <h1>Your Quote Request Is In!</h1>
+      <p class="sub">A licensed plumber will call you within 1 hour.</p>
+      <p>We received your request and we're on it. Our team will call you shortly to confirm availability, provide an exact quote, and schedule your service.</p>
+      <div class="what-next">
+        <h3>What happens next</h3>
+        <ul>
+          <li>We call you within 1 hour to confirm and quote</li>
+          <li>You approve the price before any work begins</li>
+          <li>We dispatch a licensed plumber on your schedule</li>
+          <li>Job done right &mdash; satisfaction guaranteed</li>
+        </ul>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="tel:+12105550100">&#x260E; Call Us Now</a>
+        <a class="btn btn-secondary" href="index.html">&#x2190; Back to Home</a>
+      </div>
+      <div class="fine">
+        Questions? Email <a href="mailto:info@proflowplumbing.com">info@proflowplumbing.com</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

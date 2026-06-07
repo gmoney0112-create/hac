@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Frequently Asked Questions | ProFlow Plumbing San Antonio</title>
+  <meta name="description" content="Get answers to common plumbing questions from ProFlow Plumbing. Emergency service, pricing, warranties, and more — everything you need before calling a plumber."/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#x1F527;</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root{
+      --navy:#0b1a2e;--navy-mid:#132740;--navy-light:#1a3554;
+      --copper:#c47c1e;--copper-light:#df9b3a;--copper-pale:rgba(196,124,30,.12);
+      --cream:#f8f4ef;--cream-dark:#ede7de;
+      --white:#ffffff;--text-dark:#1a1a2e;--text-mid:#4a4a6a;--text-light:#8a8aaa;
+      --border:rgba(13,43,62,0.12);
+      --shadow:0 12px 40px rgba(10,22,40,0.10);
+      --r:16px;--r-lg:20px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text-dark);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+    a{color:inherit;text-decoration:none;}
+    button,input,select,textarea{font:inherit;}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 5%;background:rgba(11,26,46,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(196,124,30,.18);}
+    .logo{display:flex;align-items:center;gap:12px;}
+    .logo-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--copper),var(--copper-light));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+    .logo-text{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--white);letter-spacing:.02em;line-height:1.1;}
+    .logo-text span{color:var(--copper);display:block;font-size:.63rem;font-weight:400;letter-spacing:.22em;text-transform:uppercase;font-family:'DM Sans',sans-serif;}
+    .nav-links{display:flex;align-items:center;gap:2rem;list-style:none;}
+    .nav-links a{color:rgba(255,255,255,.8);font-size:.85rem;letter-spacing:.04em;transition:color .2s;}
+    .nav-links a:hover{color:var(--copper);}
+    .nav-right{display:flex;align-items:center;gap:1rem;}
+    .nav-cta{background:var(--copper);color:var(--white);padding:.55rem 1.4rem;border-radius:50px;font-weight:600;font-size:.88rem;transition:all .2s;}
+    .nav-cta:hover{background:var(--copper-light);}
+    @media(max-width:768px){.nav-links{display:none;}.nav-cta{font-size:.8rem;padding:.45rem 1rem;}}
+
+    footer{background:var(--navy);padding:3rem 5% 5rem;}
+    .footer-inner{max-width:1100px;margin:0 auto;}
+    .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:1.5rem;}
+    .footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--white);margin-bottom:.8rem;}
+    .footer-logo span{color:var(--copper);}
+    .footer-tagline{font-size:.78rem;color:rgba(255,255,255,.35);letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem;}
+    .footer-desc{font-size:.87rem;color:rgba(255,255,255,.55);line-height:1.7;font-weight:300;}
+    .footer-col h4{font-size:.75rem;font-weight:600;color:rgba(255,255,255,.4);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1rem;}
+    .footer-links{list-style:none;display:flex;flex-direction:column;gap:.55rem;}
+    .footer-links a{font-size:.87rem;color:rgba(255,255,255,.6);transition:color .2s;}
+    .footer-links a:hover{color:var(--copper);}
+    .footer-contact{display:flex;flex-direction:column;gap:.55rem;}
+    .footer-contact a,.footer-contact span{font-size:.87rem;color:rgba(255,255,255,.6);}
+    .footer-contact a:hover{color:var(--copper);}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;}
+    .footer-bottom span{font-size:.8rem;color:rgba(255,255,255,.3);}
+    @media(max-width:768px){.footer-grid{grid-template-columns:1fr;}}
+
+    .hero{padding:120px 5% 60px;background:var(--cream);text-align:center;}
+    .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:600;color:var(--navy);margin-bottom:1rem;}
+    .hero p{font-size:1.05rem;color:var(--text-mid);max-width:560px;margin:0 auto;}
+
+    .faq-section{max-width:800px;margin:0 auto;padding:2rem 5% 4rem;}
+    .faq-category{margin-bottom:2.5rem;}
+    .faq-category-title{font-size:.75rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--copper);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--copper-pale);}
+
+    details{border:1px solid var(--border);border-radius:var(--r);margin-bottom:.75rem;background:var(--white);overflow:hidden;transition:box-shadow .2s;}
+    details[open]{box-shadow:var(--shadow);}
+    summary{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 1.4rem;cursor:pointer;font-weight:500;font-size:.97rem;color:var(--text-dark);list-style:none;gap:1rem;}
+    summary::-webkit-details-marker{display:none;}
+    summary::after{content:'\203A ';font-size:1.4rem;color:var(--copper);transform:rotate(90deg);display:inline-block;transition:transform .25s;flex-shrink:0;line-height:1;}
+    details[open] summary::after{transform:rotate(270deg);}
+    .faq-body{padding:0 1.4rem 1.2rem;font-size:.93rem;color:var(--text-mid);line-height:1.7;}
+
+    .cta-section{background:var(--navy);text-align:center;padding:4rem 5%;}
+    .cta-section h2{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--white);margin-bottom:.8rem;}
+    .cta-section p{color:rgba(255,255,255,.65);margin-bottom:1.8rem;font-size:.97rem;}
+    .btn-copper{display:inline-block;background:var(--copper);color:var(--white);padding:.75rem 2rem;border-radius:50px;font-weight:600;font-size:.95rem;transition:all .2s;}
+    .btn-copper:hover{background:var(--copper-light);transform:translateY(-2px);}
+    .btn-phone{display:inline-block;background:transparent;color:rgba(255,255,255,.8);padding:.75rem 2rem;border-radius:50px;border:2px solid rgba(255,255,255,.25);font-weight:500;font-size:.95rem;transition:all .2s;margin-left:.8rem;}
+    .btn-phone:hover{border-color:var(--copper);color:var(--copper-light);}
+    @media(max-width:600px){.btn-phone{margin-left:0;margin-top:.7rem;}}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">
+    <div class="logo-icon">&#x1F527;</div>
+    <div class="logo-text">ProFlow Plumbing<span>San Antonio, TX</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#why">Why Us</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="index.html#book" class="nav-cta">&#x1F527; Get a Quote</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>Frequently Asked Questions</h1>
+  <p>Everything you need to know before calling a plumber &mdash; emergency response, pricing, warranties, and more from ProFlow Plumbing.</p>
+</section>
+
+<div class="faq-section">
+
+  <div class="faq-category">
+    <div class="faq-category-title">Emergency Service</div>
+
+    <details>
+      <summary>Do you offer 24/7 emergency plumbing service?</summary>
+      <div class="faq-body">Yes. ProFlow Plumbing answers every call 24 hours a day, 7 days a week, 365 days a year. Plumbing emergencies don't keep business hours, and neither do we.</div>
+    </details>
+
+    <details>
+      <summary>How quickly can you respond to an emergency?</summary>
+      <div class="faq-body">Our target is to have a licensed plumber at your door within 60 minutes for emergency calls in the San Antonio area. Response time may vary slightly based on location and current dispatch, but we always prioritize emergencies.</div>
+    </details>
+
+    <details>
+      <summary>What counts as a plumbing emergency?</summary>
+      <div class="faq-body">Burst or actively leaking pipes, sewage backups, no water supply to the home, gas line issues, flooding, and water heater failures causing safety concerns are all emergencies. When in doubt, call us &mdash; we'll help you assess the situation at no charge.</div>
+    </details>
+
+    <details>
+      <summary>What should I do while waiting for a plumber in an emergency?</summary>
+      <div class="faq-body">Shut off the water supply immediately. Your main shutoff valve is typically near the water meter or where the supply line enters the home. Turn off electricity to any flooded areas. Do not use drains if you suspect a sewage backup. Then call us at (210) 555-0100 and we'll walk you through next steps while we're en route.</div>
+    </details>
+  </div>
+
+  <div class="faq-category">
+    <div class="faq-category-title">Pricing &amp; Payment</div>
+
+    <details>
+      <summary>Do you provide upfront pricing?</summary>
+      <div class="faq-body">Yes, always. We provide a firm, written price before any work begins. You approve it before we pick up a single tool. There are no hidden fees, no surprise charges on the invoice.</div>
+    </details>
+
+    <details>
+      <summary>How much does a plumber cost in San Antonio?</summary>
+      <div class="faq-body">Pricing depends on the type of job. Drain cleaning starts at $99, pipe repairs from $175, water heater work from $200, and emergency service from $150. Use our online quote form for a tailored estimate, or call us for a free phone assessment.</div>
+    </details>
+
+    <details>
+      <summary>What payment methods do you accept?</summary>
+      <div class="faq-body">We accept all major credit and debit cards, checks, and cash. Payment is due upon job completion unless other arrangements have been made in advance.</div>
+    </details>
+
+    <details>
+      <summary>Is there a service call or diagnostic fee?</summary>
+      <div class="faq-body">For standard scheduled jobs, we waive the diagnostic fee when you proceed with the repair. Emergency calls may include a dispatch fee, which we disclose upfront before arrival. We'll always tell you the cost before you commit.</div>
+    </details>
+  </div>
+
+  <div class="faq-category">
+    <div class="faq-category-title">Licensing &amp; Insurance</div>
+
+    <details>
+      <summary>Are you licensed and insured?</summary>
+      <div class="faq-body">Yes. ProFlow Plumbing holds a current Texas Master Plumber license and carries full general liability insurance on every job. We're happy to provide proof of insurance or license upon request.</div>
+    </details>
+
+    <details>
+      <summary>Do you pull permits for your work?</summary>
+      <div class="faq-body">Yes, when required by code. Permits are pulled for work such as repiping, water heater replacements, and major installations. We handle the permit process for you and schedule any required inspections.</div>
+    </details>
+  </div>
+
+  <div class="faq-category">
+    <div class="faq-category-title">Services &amp; Warranties</div>
+
+    <details>
+      <summary>Do you offer warranties on your work?</summary>
+      <div class="faq-body">Yes. All labor is warranted for one year from the date of service. Parts carry their manufacturer's warranty in addition to our labor warranty. If a repair fails within the warranty period, we come back and fix it at no charge.</div>
+    </details>
+
+    <details>
+      <summary>Can you handle both residential and commercial plumbing?</summary>
+      <div class="faq-body">Yes. We serve homeowners, property managers, restaurants, retail spaces, offices, and multi-unit buildings. Commercial clients can inquire about service contracts for ongoing maintenance and priority dispatch.</div>
+    </details>
+
+    <details>
+      <summary>Do you do camera inspections of drains and pipes?</summary>
+      <div class="faq-body">Yes. We use professional drain cameras to show you exactly what's happening inside your pipes before we quote a repair. You see the problem on screen so you understand what we're fixing and why. No guessing, no unnecessary upsells.</div>
+    </details>
+
+    <details>
+      <summary>What areas do you serve?</summary>
+      <div class="faq-body">We serve all of San Antonio and surrounding communities including Stone Oak, Alamo Heights, Shavano Park, Helotes, Northwest Side, Medical Center, Downtown SA, and beyond. Call us to confirm coverage for your specific address.</div>
+    </details>
+  </div>
+
+  <div class="faq-category">
+    <div class="faq-category-title">Common Plumbing Questions</div>
+
+    <details>
+      <summary>What causes low water pressure in my home?</summary>
+      <div class="faq-body">Common causes include a partially closed main shutoff valve, mineral buildup inside pipes or fixtures, a failing pressure regulator, or a leak somewhere in the system. Older galvanized steel pipes can also corrode and restrict flow over time. We can diagnose the root cause quickly and give you a clear path to a fix.</div>
+    </details>
+
+    <details>
+      <summary>Should I repair or replace my water heater?</summary>
+      <div class="faq-body">If your water heater is under 8 years old and the problem is isolated (a bad element, thermostat, or anode rod), repair usually makes financial sense. If it's over 10&ndash;12 years old, leaking from the tank, or showing signs of rust in the water, replacement is almost always the better long-term investment. We'll give you an honest assessment of both options with pricing for each.</div>
+    </details>
+
+    <details>
+      <summary>Why does my drain keep clogging?</summary>
+      <div class="faq-body">Recurring clogs typically mean there's a deeper problem: grease buildup deeper in the line, root intrusion, a damaged or misaligned pipe, or an undersized drain. A camera inspection is the fastest way to see exactly what's happening and prevent the cycle from repeating.</div>
+    </details>
+  </div>
+
+</div>
+
+<section class="cta-section">
+  <h2>Still have questions?</h2>
+  <p>Call us 24/7 or get a free quote online in under 2 minutes.</p>
+  <a href="index.html#book" class="btn-copper">&#x1F527; Get a Free Quote</a>
+  <a href="tel:+12105550100" class="btn-phone">&#x260E; Call (210) 555-0100</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Pro<span>Flow</span> Plumbing</div>
+        <div class="footer-tagline">Fast. Licensed. Guaranteed.</div>
+        <p class="footer-desc">Licensed master plumbers serving San Antonio, TX and surrounding communities. Upfront pricing, 24/7 emergency service, satisfaction guaranteed on every job.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#why">Why ProFlow</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact">
+          <a href="tel:+12105550100">(210) 555-0100</a>
+          <a href="mailto:info@proflowplumbing.com">info@proflowplumbing.com</a>
+          <span>Available 24/7 for emergencies</span>
+          <span>San Antonio, TX &amp; surrounding areas</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 ProFlow Plumbing &middot; San Antonio, TX &middot; All rights reserved</span>
+      <span>Licensed &middot; Insured &middot; Satisfaction Guaranteed</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('details').forEach(function(detail) {
+    detail.addEventListener('toggle', function() {
+      if (detail.open) {
+        document.querySelectorAll('details').forEach(function(other) {
+          if (other !== detail && other.open) other.removeAttribute('open');
+        });
+      }
+    });
+  });
+</script>
+</body>
+</html>
