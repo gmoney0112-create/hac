@@ -16,11 +16,18 @@ const README = path.join(ROOT, 'README.md');
 const SITEMAP = path.join(ROOT, 'sitemap.xml');
 const ROBOTS = path.join(ROOT, 'robots.txt');
 const NOT_FOUND = path.join(ROOT, '404.html');
+const SVC_PAGES = [
+  'tree-removal-san-antonio.html',
+  'tree-trimming-san-antonio.html',
+  'stump-grinding-san-antonio.html',
+  'emergency-tree-service-san-antonio.html',
+];
 
 const PAGES_BASE = '/hac/';
 const CANONICAL = 'https://gmoney0112-create.github.io/hac/';
 const FORM_URL = 'https://api.leadconnectorhq.com/widget/form/tO1CQEoKcm56IsYYboAq';
 const EXPECTED_TITLE = 'Master Hand Arbor Care – Professional Tree Services in San Antonio';
+const EXPECTED_TITLE_ENTITY = 'Master Hand Arbor Care &ndash; Professional Tree Services in San Antonio';
 
 const errors = [];
 const warnings = [];
@@ -58,7 +65,7 @@ if (notFoundHtml) pass('404.html present');
 if (indexHtml) {
   const titleMatch = indexHtml.match(/<title>([^<]+)<\/title>/);
   if (!titleMatch) fail('index.html: <title> missing');
-  else if (titleMatch[1].trim() !== EXPECTED_TITLE) {
+  else if (titleMatch[1].trim() !== EXPECTED_TITLE && titleMatch[1].trim() !== EXPECTED_TITLE_ENTITY) {
     fail(`index.html: unexpected <title>: "${titleMatch[1].trim()}"`);
   } else pass('index.html: <title> matches expected');
 
@@ -259,6 +266,11 @@ if (termsHtml) scanPlaceholders(termsHtml, 'terms.html');
 if (readme) scanPlaceholders(readme, 'README.md', { allowGhlChecklist: true });
 pass('no unresolved placeholders outside documented locations');
 
+// Facebook Pixel placeholder check
+if (indexHtml && indexHtml.includes('YOUR_PIXEL_ID_HERE')) {
+  warn('index.html: Facebook Pixel YOUR_PIXEL_ID_HERE not yet replaced — add Ricardo\'s real Pixel ID from business.facebook.com/events');
+}
+
 // 7. sitemap.xml content checks
 if (sitemapXml) {
   if (!sitemapXml.includes(CANONICAL)) {
@@ -284,6 +296,24 @@ if (notFoundHtml) {
   else pass('404.html: link back to /hac/ present');
   if (!notFoundHtml.includes('noindex')) warn('404.html: meta noindex not set — search engines may index the error page');
   else pass('404.html: meta noindex set');
+}
+
+// 10. Service pages: exist, have canonical, have form URL, link back to /hac/
+for (const svcFile of SVC_PAGES) {
+  const svcPath = path.join(ROOT, svcFile);
+  if (!fs.existsSync(svcPath)) {
+    fail(`service page missing: ${svcFile}`);
+    continue;
+  }
+  const svc = fs.readFileSync(svcPath, 'utf8');
+  pass(`${svcFile} present`);
+  const svcCanonical = `${CANONICAL}${svcFile}`;
+  if (!svc.includes(svcCanonical)) fail(`${svcFile}: canonical URL missing or wrong`);
+  else pass(`${svcFile}: canonical URL correct`);
+  if (!svc.includes(FORM_URL)) fail(`${svcFile}: LeadConnector form URL missing`);
+  else pass(`${svcFile}: form URL present`);
+  if (!/href="\/hac\/"/.test(svc)) fail(`${svcFile}: link back to /hac/ missing`);
+  else pass(`${svcFile}: back-link to /hac/ present`);
 }
 
 // --- Report ---
