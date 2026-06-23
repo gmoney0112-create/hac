@@ -23,8 +23,8 @@ const SVC_PAGES = [
   'emergency-tree-service-san-antonio.html',
 ];
 
-const PAGES_BASE = '/hac/';
-const CANONICAL = 'https://gmoney0112-create.github.io/hac/';
+const PAGES_BASE = '/';
+const CANONICAL = 'https://www.brokenbranchsa.com/';
 const FORM_URL = 'https://api.leadconnectorhq.com/widget/form/DqRO49iQIrGHxMJn8ZnY';
 const EXPECTED_TITLE = 'Broken Branch SA – Professional Tree Services in San Antonio';
 const EXPECTED_TITLE_ENTITY = 'Broken Branch SA &ndash; Professional Tree Services in San Antonio';
@@ -140,16 +140,16 @@ if (indexHtml) {
 
 if (privacyHtml) {
   // Back link must route correctly for Pages.
-  if (!/href="\/hac\/"/.test(privacyHtml)) {
-    fail('privacy.html: back link should be href="/hac/" for GitHub Pages project path');
-  } else pass('privacy.html: back link points to /hac/');
+  if (!/href="\/"/.test(privacyHtml)) {
+    fail('privacy.html: back link should be href="/" for root domain');
+  } else pass('privacy.html: back link points to /');
 }
 
 if (termsHtml) {
   // Back link must route correctly for Pages.
-  if (!/href="\/hac\/"/.test(termsHtml)) {
-    fail('terms.html: back link should be href="/hac/" for GitHub Pages project path');
-  } else pass('terms.html: back link points to /hac/');
+  if (!/href="\/"/.test(termsHtml)) {
+    fail('terms.html: back link should be href="/" for root domain');
+  } else pass('terms.html: back link points to /');
 
   // Guard against malformed <meta> tags (same rule used on index.html).
   const termsMetaOpen = termsHtml.match(/<meta[^>]*$/gm) || [];
@@ -181,12 +181,12 @@ if (termsHtml) {
 
 // index.html footer must link to both privacy and terms so users can reach them.
 if (indexHtml) {
-  if (!/href="\/hac\/privacy\.html"/.test(indexHtml)) {
-    fail('index.html: footer Privacy Policy link href="/hac/privacy.html" not found');
-  } else pass('index.html: Privacy Policy link wired to /hac/privacy.html');
-  if (!/href="\/hac\/terms\.html"/.test(indexHtml)) {
-    fail('index.html: footer Terms of Service link href="/hac/terms.html" not found');
-  } else pass('index.html: Terms of Service link wired to /hac/terms.html');
+  if (!/href="\/privacy\.html"/.test(indexHtml)) {
+    fail('index.html: footer Privacy Policy link href="/privacy.html" not found');
+  } else pass('index.html: Privacy Policy link wired to /privacy.html');
+  if (!/href="\/terms\.html"/.test(indexHtml)) {
+    fail('index.html: footer Terms of Service link href="/terms.html" not found');
+  } else pass('index.html: Terms of Service link wired to /terms.html');
 }
 
 // 4. Book/estimate CTA wiring — every link to LeadConnector should use the exact form URL.
@@ -295,13 +295,13 @@ if (robotsTxt) {
 
 // 9. 404.html checks
 if (notFoundHtml) {
-  if (!/href="\/hac\/"/.test(notFoundHtml)) fail('404.html: link back to /hac/ missing');
-  else pass('404.html: link back to /hac/ present');
+  if (!/href="\/"/.test(notFoundHtml)) fail('404.html: link back to / missing');
+  else pass('404.html: link back to / present');
   if (!notFoundHtml.includes('noindex')) warn('404.html: meta noindex not set — search engines may index the error page');
   else pass('404.html: meta noindex set');
 }
 
-// 10. Service pages: exist, have canonical, have form URL, link back to /hac/
+// 10. Service pages: exist, have canonical, have form URL, link back to /
 for (const svcFile of SVC_PAGES) {
   const svcPath = path.join(ROOT, svcFile);
   if (!fs.existsSync(svcPath)) {
@@ -315,8 +315,8 @@ for (const svcFile of SVC_PAGES) {
   else pass(`${svcFile}: canonical URL correct`);
   if (!svc.includes(FORM_URL)) fail(`${svcFile}: LeadConnector form URL missing`);
   else pass(`${svcFile}: form URL present`);
-  if (!/href="\/hac\/"/.test(svc)) fail(`${svcFile}: link back to /hac/ missing`);
-  else pass(`${svcFile}: back-link to /hac/ present`);
+  if (!/href="\/"/.test(svc)) fail(`${svcFile}: link back to / missing`);
+  else pass(`${svcFile}: back-link to / present`);
 }
 
 // --- Report ---
