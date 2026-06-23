@@ -34,7 +34,7 @@ The website itself is production-ready. The remaining items are **configured ins
   2. Any configured notifications fire (email / SMS to Ricardo).
   3. Any configured automations / workflows trigger as expected.
 
-The form is embedded via a link to `https://api.leadconnectorhq.com/widget/form/tO1CQEoKcm56IsYYboAq`. Changes to labels, consent text, fields, and automations happen in GHL; no code change in this repo is required.
+The form is embedded via a link to `https://api.leadconnectorhq.com/widget/form/DqRO49iQIrGHxMJn8ZnY`. Changes to labels, consent text, fields, and automations happen in GHL; no code change in this repo is required.
 
 ### Legal URLs for the GHL form
 
@@ -66,7 +66,7 @@ npm run smoke:live  # optional network smoke check of the live deployment + GHL 
 - Every absolute local `href` starts with `/hac/` (GitHub Pages project path) and resolves to a real file
 - `privacy.html` and `terms.html` back links route to `/hac/`, all absolute local `href`s under `/hac/` resolve, and both have well-formed `<meta>` tags
 - `index.html` footer links to both `/hac/privacy.html` and `/hac/terms.html`
-- Every LeadConnector CTA uses the exact form URL `https://api.leadconnectorhq.com/widget/form/tO1CQEoKcm56IsYYboAq`, including the nav "Free Estimate" button, `#heroBook`, and `#mainBook`
+- Every LeadConnector CTA uses the exact form URL `https://api.leadconnectorhq.com/widget/form/DqRO49iQIrGHxMJn8ZnY`, including the nav "Free Estimate" button, `#heroBook`, and `#mainBook`
 - No `localStorage`, `sessionStorage`, `indexedDB`, or `document.cookie` usage anywhere in the site
 - No unresolved `[PLACEHOLDER]` or `G-XXXXXXXXXX` strings outside the documented spots (commented GA4 block in `index.html`, GHL checklist section in this README)
 
@@ -77,7 +77,7 @@ CI: `.github/workflows/check.yml` runs `npm run check` on every push and PR to `
 - `https://gmoney0112-create.github.io/hac/` returns 200 and contains the brand name and form URL
 - `https://gmoney0112-create.github.io/hac/privacy.html` returns 200 and contains the SMS privacy section
 - `https://gmoney0112-create.github.io/hac/terms.html` returns 200 and contains the Terms of Service heading
-- `https://api.leadconnectorhq.com/widget/form/tO1CQEoKcm56IsYYboAq` returns 200 with non-empty HTML
+- `https://api.leadconnectorhq.com/widget/form/DqRO49iQIrGHxMJn8ZnY` returns 200 with non-empty HTML
 - Warns (does not fail) when the live GHL form still contains `[BUSINESS NAME]`, `[USE_CASE_FROM_CAMPAIGN_DESCRIPTION]`, or a literal `Button` submit label, or when its Terms link still points to `/hac/privacy.html` instead of `/hac/terms.html` — these are all fixed inside GoHighLevel, not in this repo. Smoke exits non-zero only for broken endpoints or empty/missing form HTML. It is intentionally not run in CI.
 
 ### What still has to be checked manually inside GHL

@@ -25,7 +25,7 @@ const SVC_PAGES = [
 
 const PAGES_BASE = '/hac/';
 const CANONICAL = 'https://gmoney0112-create.github.io/hac/';
-const FORM_URL = 'https://api.leadconnectorhq.com/widget/form/tO1CQEoKcm56IsYYboAq';
+const FORM_URL = 'https://api.leadconnectorhq.com/widget/form/DqRO49iQIrGHxMJn8ZnY';
 const EXPECTED_TITLE = 'Broken Branch SA – Professional Tree Services in San Antonio';
 const EXPECTED_TITLE_ENTITY = 'Broken Branch SA &ndash; Professional Tree Services in San Antonio';
 
@@ -191,7 +191,7 @@ if (indexHtml) {
 
 // 4. Book/estimate CTA wiring — every link to LeadConnector should use the exact form URL.
 if (indexHtml) {
-  const lcMatches = [...indexHtml.matchAll(/href="(https?:\/\/api\.leadconnectorhq\.com\/[^"]+)"/g)].map(m => m[1]);
+  const lcMatches = [...indexHtml.matchAll(/(?:href|src)="(https?:\/\/api\.leadconnectorhq\.com\/[^"]+)"/g)].map(m => m[1]);
   if (lcMatches.length === 0) fail('index.html: no LeadConnector CTA links found');
   const wrong = lcMatches.filter(u => u !== FORM_URL);
   if (wrong.length) {
@@ -201,15 +201,18 @@ if (indexHtml) {
     pass(`index.html: all ${lcMatches.length} LeadConnector CTA link(s) use the exact form URL`);
   }
 
-  // Must have at least the 3 expected CTA surfaces: nav, hero, main booking.
-  const expectedCtaIds = ['heroBook', 'mainBook'];
-  for (const id of expectedCtaIds) {
-    const re = new RegExp(`id="${id}"[^>]*href="${FORM_URL.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"|href="${FORM_URL.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"[^>]*id="${id}"`);
-    if (!re.test(indexHtml)) fail(`index.html: expected CTA with id="${id}" bound to form URL not found`);
-    else pass(`index.html: CTA id="${id}" wired to form URL`);
-  }
+  // Must have at least the 2 expected CTA surfaces: hero link and main booking (iframe or link).
+  const escapedFormUrl = FORM_URL.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  // heroBook — standard anchor
+  const heroRe = new RegExp(`id="heroBook"[^>]*href="${escapedFormUrl}"|href="${escapedFormUrl}"[^>]*id="heroBook"`);
+  if (!heroRe.test(indexHtml)) fail('index.html: expected CTA with id="heroBook" bound to form URL not found');
+  else pass('index.html: CTA id="heroBook" wired to form URL');
+  // mainBook — may be an iframe (src=) or anchor (href=)
+  const mainBookRe = new RegExp(`id="mainBook"[^>]*(?:href|src)="${escapedFormUrl}"|(?:href|src)="${escapedFormUrl}"[^>]*id="mainBook"`);
+  if (!mainBookRe.test(indexHtml)) fail('index.html: expected CTA with id="mainBook" bound to form URL not found');
+  else pass('index.html: CTA id="mainBook" wired to form URL');
   // Nav Free Estimate button
-  if (!/class="nav-book"[^>]*href="https:\/\/api\.leadconnectorhq\.com\/widget\/form\/tO1CQEoKcm56IsYYboAq"|href="https:\/\/api\.leadconnectorhq\.com\/widget\/form\/tO1CQEoKcm56IsYYboAq"[^>]*class="nav-book"/.test(indexHtml)) {
+  if (!/class="nav-book"[^>]*href="https:\/\/api\.leadconnectorhq\.com\/widget\/form\/DqRO49iQIrGHxMJn8ZnY"|href="https:\/\/api\.leadconnectorhq\.com\/widget\/form\/DqRO49iQIrGHxMJn8ZnY"[^>]*class="nav-book"/.test(indexHtml)) {
     fail('index.html: nav Free Estimate button not wired to form URL');
   } else pass('index.html: nav Free Estimate button wired to form URL');
 }
@@ -268,7 +271,7 @@ pass('no unresolved placeholders outside documented locations');
 
 // Facebook Pixel placeholder check
 if (indexHtml && indexHtml.includes('YOUR_PIXEL_ID_HERE')) {
-  warn('index.html: Facebook Pixel YOUR_PIXEL_ID_HERE not yet replaced — add Ricardo\'s real Pixel ID from business.facebook.com/events');
+  warn('index.html: Facebook Pixel YOUR_PIXEL_ID_HERE not yet replaced — add your real Pixel ID from business.facebook.com/events');
 }
 
 // 7. sitemap.xml content checks
