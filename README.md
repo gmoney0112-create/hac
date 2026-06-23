@@ -1,6 +1,6 @@
-# Master Hand Arbor Care
+# Broken Branch SA
 
-Static marketing site for Master Hand Arbor Care (tree services, San Antonio / Bexar County), hosted on GitHub Pages. The site is pure static HTML/CSS — there is no backend, no build step, and no JavaScript bundler. Lead capture is delegated to a GoHighLevel / LeadConnector hosted form loaded via an external link.
+Static marketing site for Broken Branch SA (tree services, San Antonio / Bexar County), hosted on GitHub Pages. The site is pure static HTML/CSS — there is no backend, no build step, and no JavaScript bundler. Lead capture is delegated to a GoHighLevel / LeadConnector hosted form loaded via an external link.
 
 ## Deployment
 
@@ -11,9 +11,9 @@ Static marketing site for Master Hand Arbor Care (tree services, San Antonio / B
 
 ### Switching to a custom domain later
 
-If/when a custom domain (e.g. `masterhandarborcare.com`) is pointed at this repo:
+If/when a custom domain (e.g. `brokenbranchsa.com`) is pointed at this repo:
 
-1. Add a `CNAME` file at the repo root containing only the bare domain (e.g. `masterhandarborcare.com`).
+1. Add a `CNAME` file at the repo root containing only the bare domain (e.g. `brokenbranchsa.com`).
 2. Configure the domain's DNS per GitHub Pages docs and enable "Enforce HTTPS" in repo Settings → Pages.
 3. Update the following references in `index.html` to the new canonical URL:
    - `<link rel="canonical" href="...">`
@@ -27,7 +27,7 @@ The website itself is production-ready. The remaining items are **configured ins
 
 - [ ] **Submit button label** — currently renders as the literal text `Button`. Rename to something action-oriented (e.g. `Get My Free Estimate`) in the form builder.
 - [ ] **SMS consent copy** — contains unresolved placeholders that must be replaced with real values:
-  - `[BUSINESS NAME]` → `Master Hand Arbor Care`
+  - `[BUSINESS NAME]` → `Broken Branch SA`
   - `[USE_CASE_FROM_CAMPAIGN_DESCRIPTION]` → the approved A2P 10DLC campaign use case (e.g. "appointment scheduling and estimate follow-ups for tree service customers"). Must match exactly what was registered with the carrier.
 - [ ] **End-to-end test** — after the two items above are fixed, submit a real test lead through the live form and confirm:
   1. The lead appears in GHL (Contacts / Opportunities).

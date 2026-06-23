@@ -26,8 +26,8 @@ const SVC_PAGES = [
 const PAGES_BASE = '/hac/';
 const CANONICAL = 'https://gmoney0112-create.github.io/hac/';
 const FORM_URL = 'https://api.leadconnectorhq.com/widget/form/tO1CQEoKcm56IsYYboAq';
-const EXPECTED_TITLE = 'Master Hand Arbor Care – Professional Tree Services in San Antonio';
-const EXPECTED_TITLE_ENTITY = 'Master Hand Arbor Care &ndash; Professional Tree Services in San Antonio';
+const EXPECTED_TITLE = 'Broken Branch SA – Professional Tree Services in San Antonio';
+const EXPECTED_TITLE_ENTITY = 'Broken Branch SA &ndash; Professional Tree Services in San Antonio';
 
 const errors = [];
 const warnings = [];
