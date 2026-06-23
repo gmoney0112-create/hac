@@ -214,6 +214,15 @@ footer{background:var(--deep);padding:3.5rem 5% 2rem}
 @media(max-width:900px){.hero-card{display:none}.vid-split{grid-template-columns:1fr}}
 @media(max-width:680px){.stats-inner{grid-template-columns:repeat(2,1fr)}.stat{border-right:none;border-bottom:1px solid rgba(255,255,255,.08)}.stat:nth-child(3),.stat:last-child{border-bottom:none}.ft-top{flex-direction:column;gap:2rem}.about-split{grid-template-columns:1fr!important}}
 
+/* GALLERY */
+.gallery-sec{background:var(--deep);padding:5rem 5%}
+.gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:2.5rem}
+.gallery-item{border-radius:16px;overflow:hidden;position:relative;aspect-ratio:4/3;background:var(--canopy)}
+.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
+.gallery-item:hover img{transform:scale(1.04)}
+.gallery-caption{position:absolute;bottom:0;left:0;right:0;padding:.75rem 1rem;background:linear-gradient(transparent,rgba(0,0,0,.65));font-size:.78rem;color:rgba(255,255,255,.85);font-weight:500}
+@media(max-width:600px){.gallery-grid{grid-template-columns:1fr}}
+
 /* CTA STRIP */
 .cta-strip{background:var(--canopy);padding:2.5rem 5%;text-align:center}
 .cta-strip p{color:rgba(255,255,255,.65);font-size:1rem;margin-bottom:1.2rem}
@@ -404,6 +413,36 @@ footer{background:var(--deep);padding:3.5rem 5% 2rem}
       <div class="svc reveal d3"><div class="svc-ico">&#x1F33F;</div><h3>Land Clearing</h3><p>Lot clearing for construction, landscaping, or property clean-up. Efficient, thorough, and complete.</p></div>
       <div class="svc reveal d1"><div class="svc-ico">&#x1F50D;</div><h3>Tree Health Assessment</h3><p>Diagnose disease, structural issues, and risk factors before they become costly or dangerous problems.</p></div>
       <div class="svc reveal d2"><div class="svc-ico">&#x1F6E1;&#xFE0F;</div><h3>Preventive Maintenance</h3><p>Regular care plans to keep your trees healthy, beautiful, and safe every season of the year.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery-sec" id="our-work">
+  <div class="si">
+    <div class="stag" style="color:var(--sage)">Real Jobs, Real Results</div>
+    <h2 class="stitle reveal" style="color:#fff">Our Work in<br><em>San Antonio</em></h2>
+    <p class="sdesc reveal" style="color:rgba(255,255,255,.55)">Every job is handled with the right equipment and left cleaner than we found it. These are real photos from real Bexar County jobs.</p>
+    <div class="gallery-grid">
+      <div class="gallery-item reveal d1">
+        <img src="/hac/images/work-fallen-tree.jpg" alt="Large tree uprooted and fallen near a San Antonio home after a storm" loading="lazy" width="1200" height="900">
+        <div class="gallery-caption">Storm damage — uprooted oak, San Antonio</div>
+      </div>
+      <div class="gallery-item reveal d2">
+        <img src="/hac/images/work-storm-crew.jpg" alt="Broken Branch SA crew member in safety gear cutting a storm-damaged tree off a house" loading="lazy" width="1200" height="900">
+        <div class="gallery-caption">Emergency storm cleanup — crew on-site same day</div>
+      </div>
+      <div class="gallery-item reveal d3">
+        <img src="/hac/images/work-stump-grinding.jpg" alt="Stump grinding with heavy equipment in San Antonio yard" loading="lazy" width="1200" height="1600">
+        <div class="gallery-caption">Stump grinding — full removal below grade</div>
+      </div>
+      <div class="gallery-item reveal d1">
+        <img src="/hac/images/work-tree-on-roof.jpg" alt="Large tree fallen directly onto the roof of a San Antonio home requiring emergency removal" loading="lazy" width="1200" height="900">
+        <div class="gallery-caption">Tree on roof — emergency response, Bexar County</div>
+      </div>
+      <div class="gallery-item reveal d2" style="grid-column:1/-1;aspect-ratio:16/7">
+        <img src="/hac/images/work-tree-trimming.jpg" alt="Broken Branch SA climber working high in a live oak tree performing precision trimming in San Antonio" loading="lazy" width="720" height="1280" style="object-position:center 30%">
+        <div class="gallery-caption">Tree trimming — climber at work in a San Antonio live oak</div>
+      </div>
     </div>
   </div>
 </section>
