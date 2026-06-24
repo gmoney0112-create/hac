@@ -207,10 +207,10 @@ if (indexHtml) {
   const heroRe = new RegExp(`id="heroBook"[^>]*href="${escapedFormUrl}"|href="${escapedFormUrl}"[^>]*id="heroBook"`);
   if (!heroRe.test(indexHtml)) fail('index.html: expected CTA with id="heroBook" bound to form URL not found');
   else pass('index.html: CTA id="heroBook" wired to form URL');
-  // mainBook — may be an iframe (src=) or anchor (href=)
-  const mainBookRe = new RegExp(`id="mainBook"[^>]*(?:href|src)="${escapedFormUrl}"|(?:href|src)="${escapedFormUrl}"[^>]*id="mainBook"`);
-  if (!mainBookRe.test(indexHtml)) fail('index.html: expected CTA with id="mainBook" bound to form URL not found');
-  else pass('index.html: CTA id="mainBook" wired to form URL');
+  // inline form embed — id="inline-<formId>" with src pointing to form URL
+  const mainBookRe = new RegExp(`id="inline-[^"]*"[^>]*src="${escapedFormUrl}"|src="${escapedFormUrl}"[^>]*id="inline-[^"]*"`);
+  if (!mainBookRe.test(indexHtml)) fail('index.html: expected inline form embed with form URL not found');
+  else pass('index.html: inline form embed wired to form URL');
   // Nav Free Estimate button
   if (!/class="nav-book"[^>]*href="https:\/\/api\.leadconnectorhq\.com\/widget\/form\/DqRO49iQIrGHxMJn8ZnY"|href="https:\/\/api\.leadconnectorhq\.com\/widget\/form\/DqRO49iQIrGHxMJn8ZnY"[^>]*class="nav-book"/.test(indexHtml)) {
     fail('index.html: nav Free Estimate button not wired to form URL');
