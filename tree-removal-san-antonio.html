@@ -179,6 +179,8 @@
     .breadcrumb a{color:rgba(255,255,255,.55);text-decoration:none}
     .breadcrumb a:hover{color:var(--gold-lt)}
   </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WJDX8ME2F9"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-WJDX8ME2F9');</script>
 </head>
 <body>
 
@@ -407,5 +409,17 @@
 </div>
 
 <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script>
+document.querySelectorAll('a[href*="leadconnectorhq"]').forEach(function(el){
+  el.addEventListener('click',function(){
+    try{if(typeof gtag==='function')gtag('event','generate_lead',{event_category:'cta',event_label:el.id||'estimate_link',page_path:location.pathname});}catch(e){}
+  });
+});
+document.querySelectorAll('a[href^="tel:"]').forEach(function(el){
+  el.addEventListener('click',function(){
+    try{if(typeof gtag==='function')gtag('event','click_to_call',{event_category:'phone',event_label:'phone_number',page_path:location.pathname});}catch(e){}
+  });
+});
+</script>
 </body>
 </html>
