@@ -729,19 +729,6 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
   });
 });
 
-// CTA + phone tracking (GA4 + Facebook Pixel)
-document.querySelectorAll('a[href*="leadconnectorhq"]').forEach(function(el){
-  el.addEventListener('click',function(){
-    try{if(window.fbq)fbq('track','Lead',{content_name:el.id||'estimate_link'});}catch(e){}
-    try{if(typeof gtag==='function')gtag('event','generate_lead',{event_category:'cta',event_label:el.id||'estimate_link'});}catch(e){}
-  });
-});
-document.querySelectorAll('a[href^="tel:"]').forEach(function(el){
-  el.addEventListener('click',function(){
-    try{if(window.fbq)fbq('track','Contact',{content_name:'phone_call'});}catch(e){}
-    try{if(typeof gtag==='function')gtag('event','click_to_call',{event_category:'phone',event_label:'phone_number'});}catch(e){}
-  });
-});
 </script>
 
 <div class="mobile-cta" aria-label="Quick contact">

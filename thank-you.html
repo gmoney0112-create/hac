@@ -16,10 +16,9 @@ t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
 (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','YOUR_PIXEL_ID_HERE');
 fbq('track','PageView');
-fbq('track','Lead');
 </script>
 <noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID_HERE&ev=Lead&noscript=1"/></noscript>
+src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID_HERE&ev=PageView&noscript=1"/></noscript>
 <!-- Google Analytics GA4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WJDX8ME2F9"></script>
 <script>
@@ -27,7 +26,22 @@ window.dataLayer=window.dataLayer||[];
 function gtag(){dataLayer.push(arguments)}
 gtag('js',new Date());
 gtag('config','G-WJDX8ME2F9');
-gtag('event','generate_lead',{event_category:'form',event_label:'estimate_request'});
+// Fire generate_lead only if the visitor showed form intent in the last 2 hours; the marker is consumed so it fires once.
+(function(){
+  var intent=null,attr={};
+  try{intent=localStorage.getItem('bb_lead_intent');}catch(e){}
+  try{attr=JSON.parse(localStorage.getItem('bb_attr')||'{}');}catch(e){}
+  var fresh=intent&&(Date.now()-Number(intent))<2*60*60*1000;
+  var p={event_category:'form',event_label:'estimate_request'};
+  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','landing_page'].forEach(function(k){if(attr[k])p[k]=attr[k];});
+  if(fresh){
+    try{localStorage.removeItem('bb_lead_intent');}catch(e){}
+    gtag('event','generate_lead',p);
+    try{if(window.fbq)fbq('track','Lead');}catch(e){}
+  }else{
+    gtag('event','thank_you_page_view',{event_category:'form',event_label:'direct_or_repeat_visit'});
+  }
+})();
 </script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>&#x1F333;</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
