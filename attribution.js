@@ -53,4 +53,10 @@
         { type: 'track', name: 'Contact' });
     });
   });
+  document.querySelectorAll('a[href^="sms:"]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      markIntent();
+      track('click_text', { event_category: 'intent', event_label: 'text_photo' }, { type: 'track', name: 'Contact' });
+    });
+  });
 })();
