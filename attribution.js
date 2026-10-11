@@ -59,4 +59,10 @@
       track('click_text', { event_category: 'intent', event_label: 'text_photo' }, { type: 'track', name: 'Contact' });
     });
   });
+  document.querySelectorAll('a[href*="/widget/bookings/"]').forEach(function (a) {
+    a.href = decorate(a.href);
+    a.addEventListener('click', function () {
+      track('click_booking', { event_category: 'intent', event_label: 'book_estimate_time' }, { type: 'trackCustom', name: 'BookingClick' });
+    });
+  });
 })();
